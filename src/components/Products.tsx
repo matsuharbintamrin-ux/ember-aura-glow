@@ -1,12 +1,17 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import briquetteImage from "@/assets/product-briquette.jpg";
 import charcoalImage from "@/assets/product-charcoal.jpg";
-import { Flame, Sparkles, Zap } from "lucide-react";
+import { Flame, Sparkles, Zap, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
+  const navigate = useNavigate();
+  
   const products = [
     {
+      id: "briket-arang",
       name: "Briket Arang Premium",
       image: briquetteImage,
       description: "Briket arang berkualitas tinggi dengan bentuk seragam, tahan lama, dan panas stabil",
@@ -20,6 +25,7 @@ const Products = () => {
       color: "primary"
     },
     {
+      id: "arang-tempurung",
       name: "Arang Tempurung Kelapa",
       image: charcoalImage,
       description: "Arang dari tempurung kelapa pilihan dengan kualitas premium dan pembakaran optimal",
@@ -75,13 +81,21 @@ const Products = () => {
                     <Zap className="h-4 w-4 text-accent" />
                     Keunggulan Produk
                   </h4>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {product.features.map((feature, idx) => (
                       <Badge key={idx} variant="secondary" className="text-sm">
                         {feature}
                       </Badge>
                     ))}
                   </div>
+                  
+                  <Button 
+                    className="w-full mt-4 group"
+                    onClick={() => navigate(`/product/${product.id}`)}
+                  >
+                    Lihat Detail Produk
+                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
                 </div>
               </CardContent>
             </Card>
