@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2016",                // output JS target
+    "module": "commonjs",              // module system Node
+    "esModuleInterop": true,           // import default modules CommonJS
+    "strict": true,                     // strict type checking
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,               // skip type check .d.ts libraries
+    "outDir": "./dist",                 // folder output JS setelah compile
+    "rootDir": "./",                    // root folder TS
+    "resolveJsonModule": true,          // bisa import .json
+    "allowJs": true,                    // kalau ada file JS
+    "typeRoots": ["./node_modules/@types", "./types"] // deklarasi custom
+  },
+  "include": ["**/*.ts", "**/*.d.ts"]
+}
