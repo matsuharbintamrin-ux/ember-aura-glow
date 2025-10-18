@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import Products from "./pages/ProductList";
 import ProductDetail from "./pages/ProductDetail";
 import Factory from "./pages/Factory";
 import NotFound from "./pages/NotFound";
@@ -18,9 +19,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/product/:productId" element={<ProductDetail />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/product/:productSlug" element={<ProductDetail />} />
           <Route path="/factory" element={<Factory />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
