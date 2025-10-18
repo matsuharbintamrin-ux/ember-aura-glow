@@ -5,10 +5,12 @@ import Products from "@/components/Products";
 import Advantages from "@/components/Advantages";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { LiveChat } from "@/components/LiveChat"; // <- named import
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      {/* Konten halaman */}
       <Navbar />
       <Hero />
       <About />
@@ -16,6 +18,9 @@ const Index = () => {
       <Advantages />
       <Contact />
       <Footer />
+
+      {/* Live Chat selalu muncul di atas halaman */}
+      <LiveChat />
     </div>
   );
 };
