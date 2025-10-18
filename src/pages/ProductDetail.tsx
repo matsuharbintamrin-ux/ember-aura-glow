@@ -72,7 +72,7 @@ const ProductDetail = () => {
       <Navbar />
 
       {/* Hero 2 kolom */}
-      <section className="relative pt-24 pb-12 bg-gradient-hero">
+      <section className="relative pt-24 pb-12">
         <div className="container mx-auto px-4">
           <Button 
             variant="ghost" 
