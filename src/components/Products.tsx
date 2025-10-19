@@ -5,7 +5,7 @@ import { Flame, Sparkles, Zap, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const BASE_URL = "http://localhost:4000";
+const BASE_URL = "http://farihul-server.space:4000";
 
 interface ProductType {
   id: number;

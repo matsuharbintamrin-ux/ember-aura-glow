@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Flame, Sparkles, Search } from "lucide-react";
 
-const BASE_URL = "http://localhost:4000";
+const BASE_URL = "http://farihul-server.space:4000";
 
 interface Product {
   id: number;

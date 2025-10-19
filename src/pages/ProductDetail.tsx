@@ -10,7 +10,7 @@ import {
   Phone, Mail, Factory, Leaf, Award, ArrowLeft
 } from "lucide-react";
 
-const BASE_URL = "http://localhost:4000";
+const BASE_URL = "http://farihul-server.space:4000";
 
 interface Specification {
   label: string;
