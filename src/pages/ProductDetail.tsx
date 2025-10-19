@@ -10,7 +10,8 @@ import {
   Phone, Mail, Factory, Leaf, Award, ArrowLeft
 } from "lucide-react";
 
-const BASE_URL = "http://localhost:4000/products";
+//const BASE_URL = "http://localhost:4000/products";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL; // contoh: http://farihul-server.space:4000
 
 interface Specification {
   label: string;

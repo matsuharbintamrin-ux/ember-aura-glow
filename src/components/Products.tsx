@@ -5,7 +5,8 @@ import { Flame, Sparkles, Zap, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const BASE_URL = "http://localhost:4000/products";
+// Ambil BASE_URL dari .env
+const BASE_URL = import.meta.env.VITE_API_BASE_URL; // contoh: http://farihul-server.space:4000
 
 interface ProductType {
   id: number;
@@ -29,6 +30,7 @@ const Products = ({ limit = 2 }: { limit?: number }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        // fetch dari BASE_URL
         const res = await fetch(`${BASE_URL}/products`);
         if (!res.ok) throw new Error("Gagal mengambil produk");
         const data: ProductType[] = await res.json();
