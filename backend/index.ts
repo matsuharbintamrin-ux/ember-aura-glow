@@ -6,12 +6,15 @@ import chatRouter from "./routes/chat";
 
 const app = express();
 
-// ✅ CORS fix agar frontend lokal / ngrok bisa akses
+// ✅ CORS fix agar frontend bisa akses
 app.use(cors({
   origin: "*", // Bisa diganti ke domain tertentu setelah deploy
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
+
+// ✅ Handle preflight request (OPTIONS)
+app.options("*", cors());
 
 // ✅ Parsing body JSON
 app.use(express.json());
