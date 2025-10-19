@@ -9,7 +9,8 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     allowedHosts: [
-      "superideally-interviewable-nadia.ngrok-free.dev", // ✅ domain ngrok kamu
+      'farihul-server.space',
+      'www.farihul-server.space',
       "localhost",                                       // optional: biar tetap bisa akses lokal
     ],
   },
