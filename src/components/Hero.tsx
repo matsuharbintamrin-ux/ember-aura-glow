@@ -35,15 +35,14 @@ const Hero = () => {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
-            Pabrik Arang & Briket
+            Pabrik Arang 
             <span className="block bg-gradient-hero bg-clip-text text-transparent mt-2">
-              Berkualitas Premium
+              Arang Berkualitas Tinggi
             </span>
           </h1>
 
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-12 leading-relaxed max-w-3xl mx-auto">
-            Memproduksi arang dan briket berkualitas tinggi dengan standar internasional.
-            Ramah lingkungan, efisien, dan terpercaya untuk kebutuhan industri maupun rumah tangga.
+            Memproduksi arang batok kelapa dengan kualitas industri. Ramah lingkungan, efisien, dan cocok untuk briket maupun karbon aktif
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
