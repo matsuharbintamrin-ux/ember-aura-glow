@@ -6,16 +6,12 @@ import chatRouter from "./routes/chat";
 
 const app = express();
 
-
-// index.ts (backend)
+// ✅ CORS: izinkan domain frontend
 app.use(cors({
-  origin: ["https://farihul-server.space", "http://localhost:8080"], // tambahkan domain dev
-  methods: ["GET", "POST"],
+  origin: ["https://farihul-server.space", "http://localhost:8080"], 
+  methods: ["GET", "POST", "OPTIONS"],
   allowedHeaders: ["Content-Type","Authorization"]
 }));
-
-
-
 
 // ✅ Parsing body JSON
 app.use(express.json());
@@ -26,15 +22,15 @@ app.use((req, res, next) => {
   next();
 });
 
-// ✅ Mount router produk & chat
-app.use("/products", productsRouter);
-app.use("/chat", chatRouter);
+// ✅ Mount router produk & chat di /api
+app.use("/api/products", productsRouter);
+app.use("/api/chat", chatRouter);
 
 // ✅ Serve folder gambar
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 // ✅ Default route
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.json({ message: "🔥 Backend API is running successfully!" });
 });
 
