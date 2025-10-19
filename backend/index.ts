@@ -6,44 +6,41 @@ import chatRouter from "./routes/chat";
 
 const app = express();
 
-// ✅ CORS: biar frontend bisa akses
-app.use(
-  cors({
-    origin: "*", // bisa diganti ke domain tertentu setelah deploy
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+// ✅ CORS
+app.use(cors({
+  origin: "*",
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  allowedHeaders: ["Content-Type","Authorization"],
+}));
 
-// ✅ Parsing body JSON
+// ✅ JSON parser
 app.use(express.json());
 
-// ✅ Logging request
-app.use((req, res, next) => {
+// ✅ Logging
+app.use((req,res,next) => {
   console.log(`[${req.method}] ${req.url}`);
   next();
 });
 
-// ✅ Mount router produk & chat
+// ✅ Routers
 app.use("/products", productsRouter);
 app.use("/chat", chatRouter);
 
-// ✅ Serve folder gambar agar bisa diakses frontend
-app.use("/images", express.static(path.join(__dirname, "images")));
+// ✅ Serve images
+app.use("/images", express.static(path.join(__dirname,"images")));
 
-// ✅ Default route (tes server)
-app.get("/", (req, res) => {
+// ✅ Default route
+app.get("/", (req,res) => {
   res.json({ message: "🔥 Backend API is running successfully!" });
 });
 
-// ✅ Route fallback untuk semua route yang tidak ditemukan (404)
-app.all("/*", (req, res) => {
+// ✅ 404 fallback (AMAN)
+app.use((req,res) => {
   res.status(404).json({ message: "Route not found" });
 });
 
-// ✅ Jalankan server
+// ✅ Start server
 const PORT = Number(process.env.PORT) || 4000;
-
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(PORT,"0.0.0.0", () => {
   console.log(`✅ Backend running at http://0.0.0.0:${PORT}`);
 });
