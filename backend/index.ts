@@ -23,14 +23,14 @@ app.use((req, res, next) => {
 });
 
 // ✅ Mount router produk & chat di /api
-app.use("/api/products", productsRouter);
-app.use("/api/chat", chatRouter);
+app.use("/products", productsRouter);
+app.use("/chat", chatRouter);
 
 // ✅ Serve folder gambar
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 // ✅ Default route
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
   res.json({ message: "🔥 Backend API is running successfully!" });
 });
 
