@@ -8,7 +8,7 @@ const app = express();
 
 // ✅ CORS fix agar frontend lokal / ngrok bisa akses
 app.use(cors({
-  origin: "*", // kamu bisa ganti ke domain tertentu kalau sudah deploy
+  origin: "*", // Bisa diganti ke domain tertentu setelah deploy
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
@@ -22,7 +22,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// ✅ Mount router produk
+// ✅ Mount router produk & chat
 app.use("/products", productsRouter);
 app.use("/chat", chatRouter);
 
@@ -35,8 +35,6 @@ app.get("/", (req, res) => {
 });
 
 // ✅ Jalankan server
-
-
 const PORT = Number(process.env.PORT) || 4000;
 
 app.listen(PORT, "0.0.0.0", () => {
