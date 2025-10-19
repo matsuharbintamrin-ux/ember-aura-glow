@@ -6,15 +6,14 @@ import chatRouter from "./routes/chat";
 
 const app = express();
 
-// ✅ CORS fix agar frontend bisa akses
-app.use(cors({
-  origin: "*", // Bisa diganti ke domain tertentu setelah deploy
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-}));
-
-// ✅ Handle preflight request (OPTIONS)
-app.options("*", cors());
+// ✅ CORS: biar frontend bisa akses
+app.use(
+  cors({
+    origin: "*", // bisa diganti ke domain tertentu setelah deploy
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 // ✅ Parsing body JSON
 app.use(express.json());
@@ -29,12 +28,17 @@ app.use((req, res, next) => {
 app.use("/products", productsRouter);
 app.use("/chat", chatRouter);
 
-// ✅ Serve folder gambar agar bisa diakses dari frontend
+// ✅ Serve folder gambar agar bisa diakses frontend
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 // ✅ Default route (tes server)
 app.get("/", (req, res) => {
   res.json({ message: "🔥 Backend API is running successfully!" });
+});
+
+// ✅ Route fallback untuk semua route yang tidak ditemukan (404)
+app.all("/*", (req, res) => {
+  res.status(404).json({ message: "Route not found" });
 });
 
 // ✅ Jalankan server
