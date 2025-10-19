@@ -6,11 +6,12 @@ import chatRouter from "./routes/chat";
 
 const app = express();
 
-// ✅ CORS (harus sebelum router)
+
+// index.ts (backend)
 app.use(cors({
-  origin: "http://farihul-server.space", // frontend URL
-  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
-  allowedHeaders: ["Content-Type","Authorization"],
+  origin: ["http://farihul-server.space", "http://localhost:8080"], // tambahkan domain dev
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type","Authorization"]
 }));
 
 // ✅ Parsing body JSON
