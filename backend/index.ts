@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import path from "path";
 import productsRouter from "./routes/products";
+import chatRouter from "./routes/chat";
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
 
 // ✅ Mount router produk
 app.use("/products", productsRouter);
+app.use("/chat", chatRouter);
 
 // ✅ Serve folder gambar agar bisa diakses dari frontend
 app.use("/images", express.static(path.join(__dirname, "images")));
