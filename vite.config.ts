@@ -8,6 +8,10 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    allowedHosts: [
+      "superideally-interviewable-nadia.ngrok-free.dev", // ✅ domain ngrok kamu
+      "localhost",                                       // optional: biar tetap bisa akses lokal
+    ],
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {

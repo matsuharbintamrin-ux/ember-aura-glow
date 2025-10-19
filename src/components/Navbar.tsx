@@ -16,25 +16,35 @@ const Navbar = () => {
     { name: "Kontak", href: "#contact" },
   ];
 
+  const handleContactClick = () => {
+    setIsOpen(false);
+    navigate("/contact");
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <div
+            className="flex items-center gap-2 cursor-pointer select-none"
+            onClick={() => navigate("/")}
+          >
             <div className="bg-gradient-primary p-2 rounded-lg">
               <Factory className="h-6 w-6 text-primary-foreground" />
             </div>
             <div>
-              <div className="font-bold text-lg leading-none">Pabrik Arang</div>
-              <div className="text-xs text-muted-foreground">Briket Premium</div>
+              <div className="font-bold text-lg leading-none">Surya Griise</div>
+              <div className="text-xs text-muted-foreground">
+                Briket Premium
+              </div>
             </div>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            {navItems.map((item) => (
-              item.href.startsWith('#') ? (
+            {navItems.map((item) =>
+              item.href.startsWith("#") ? (
                 <a
                   key={item.name}
                   href={item.href}
@@ -51,12 +61,15 @@ const Navbar = () => {
                   {item.name}
                 </button>
               )
-            ))}
+            )}
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-primary hover:bg-primary-dark shadow-primary">
+            <Button
+              className="bg-primary hover:bg-primary-dark shadow-primary"
+              onClick={handleContactClick}
+            >
               Hubungi Kami
             </Button>
           </div>
@@ -73,8 +86,8 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden py-4 space-y-3 border-t border-border">
-            {navItems.map((item) => (
-              item.href.startsWith('#') ? (
+            {navItems.map((item) =>
+              item.href.startsWith("#") ? (
                 <a
                   key={item.name}
                   href={item.href}
@@ -95,9 +108,12 @@ const Navbar = () => {
                   {item.name}
                 </button>
               )
-            ))}
+            )}
             <div className="px-4 pt-2">
-              <Button className="w-full bg-primary hover:bg-primary-dark shadow-primary">
+              <Button
+                className="w-full bg-primary hover:bg-primary-dark shadow-primary"
+                onClick={handleContactClick}
+              >
                 Hubungi Kami
               </Button>
             </div>

@@ -1,17 +1,24 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-factory.jpg";
 import { Phone, Mail } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    navigate("/contact"); // arahkan ke halaman contact
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
-      <div 
+      <div
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: `url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         <div className="absolute inset-0 bg-gradient-overlay" />
@@ -26,29 +33,30 @@ const Hero = () => {
               Produsen Terpercaya
             </span>
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
             Pabrik Arang & Briket
             <span className="block bg-gradient-hero bg-clip-text text-transparent mt-2">
               Berkualitas Premium
             </span>
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-12 leading-relaxed max-w-3xl mx-auto">
-            Memproduksi arang dan briket berkualitas tinggi dengan standar internasional. 
+            Memproduksi arang dan briket berkualitas tinggi dengan standar internasional.
             Ramah lingkungan, efisien, dan terpercaya untuk kebutuhan industri maupun rumah tangga.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-primary hover:bg-primary-dark text-primary-foreground shadow-primary transition-all duration-300 hover:scale-105"
+              onClick={handleContactClick}
             >
               <Phone className="mr-2 h-5 w-5" />
               Hubungi Kami
             </Button>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               variant="outline"
               className="bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20 backdrop-blur-sm transition-all duration-300 hover:scale-105"
             >

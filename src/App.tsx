@@ -8,6 +8,7 @@ import Products from "./pages/ProductList";
 import ProductDetail from "./pages/ProductDetail";
 import Factory from "./pages/Factory";
 import NotFound from "./pages/NotFound";
+import Contact from "./pages/Contact"; // 👈 Tambahkan ini
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/products" element={<Products />} />
           <Route path="/product/:productSlug" element={<ProductDetail />} />
           <Route path="/factory" element={<Factory />} />
+          <Route path="/contact" element={<Contact />} /> {/* 👈 Tambahkan route ini */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
