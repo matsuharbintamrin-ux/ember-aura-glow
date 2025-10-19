@@ -67,7 +67,7 @@ export const LiveChat = () => {
         setMessages((prev) => [...prev, botMessage]);
       } else {
         // Kirim ke backend untuk jawaban detail
-        const res = await fetch("http://farihul-server.space:4000/chat", {
+        const res = await fetch("https://farihul-server.space:4000/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ message: userText }),

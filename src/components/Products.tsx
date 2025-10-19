@@ -12,9 +12,13 @@ interface ProductType {
   slug: string;
   name: string;
   image: string;
-  description: string;
+  shortDesc: string;
+  fullDesc?: string;
   features: string[];
-  iconType: "flame" | "sparkles";
+  specifications?: { label: string; value: string }[];
+  applications?: string[];
+  packaging?: string[];
+  iconType?: "flame" | "sparkles";
 }
 
 const Products = ({ limit = 2 }: { limit?: number }) => {
@@ -56,7 +60,10 @@ const Products = ({ limit = 2 }: { limit?: number }) => {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {products.map((product) => (
-            <Card key={product.id} className="overflow-hidden group hover:shadow-2xl transition-all duration-500 border-2 hover:border-primary">
+            <Card
+              key={product.id}
+              className="overflow-hidden group hover:shadow-2xl transition-all duration-500 border-2 hover:border-primary"
+            >
               <div className="relative h-80 overflow-hidden">
                 <img
                   src={`${BASE_URL}${product.image}`}
@@ -65,13 +72,17 @@ const Products = ({ limit = 2 }: { limit?: number }) => {
                 />
                 <div className="absolute inset-0 bg-gradient-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute top-4 right-4 bg-primary text-primary-foreground p-3 rounded-full shadow-lg">
-                  {product.iconType === "flame" ? <Flame className="h-6 w-6" /> : <Sparkles className="h-6 w-6" />}
+                  {product.iconType
+                    ? product.iconType === "flame"
+                      ? <Flame className="h-6 w-6" />
+                      : <Sparkles className="h-6 w-6" />
+                    : <Flame className="h-6 w-6" />}
                 </div>
               </div>
 
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold mb-3">{product.name}</h3>
-                <p className="text-muted-foreground mb-6">{product.description}</p>
+                <p className="text-muted-foreground mb-6">{product.shortDesc}</p>
 
                 <div className="space-y-2">
                   <h4 className="font-semibold text-sm uppercase tracking-wide mb-3 flex items-center gap-2">
@@ -88,7 +99,7 @@ const Products = ({ limit = 2 }: { limit?: number }) => {
 
                   <Button
                     className="w-full mt-4 group"
-                    onClick={() => navigate(`/product/${product.slug}`)} // pakai slug
+                    onClick={() => navigate(`/product/${product.slug}`)}
                   >
                     Lihat Detail Produk
                     <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
