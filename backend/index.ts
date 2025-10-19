@@ -6,41 +6,36 @@ import chatRouter from "./routes/chat";
 
 const app = express();
 
-// ✅ CORS
+// ✅ CORS (harus sebelum router)
 app.use(cors({
-  origin: "*",
+  origin: "http://farihul-server.space", // frontend URL
   methods: ["GET","POST","PUT","DELETE","OPTIONS"],
   allowedHeaders: ["Content-Type","Authorization"],
 }));
 
-// ✅ JSON parser
+// ✅ Parsing body JSON
 app.use(express.json());
 
-// ✅ Logging
-app.use((req,res,next) => {
+// ✅ Logging request
+app.use((req, res, next) => {
   console.log(`[${req.method}] ${req.url}`);
   next();
 });
 
-// ✅ Routers
+// ✅ Mount router produk & chat
 app.use("/products", productsRouter);
 app.use("/chat", chatRouter);
 
-// ✅ Serve images
-app.use("/images", express.static(path.join(__dirname,"images")));
+// ✅ Serve folder gambar
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 // ✅ Default route
-app.get("/", (req,res) => {
+app.get("/", (req, res) => {
   res.json({ message: "🔥 Backend API is running successfully!" });
 });
 
-// ✅ 404 fallback (AMAN)
-app.use((req,res) => {
-  res.status(404).json({ message: "Route not found" });
-});
-
-// ✅ Start server
+// ✅ Jalankan server
 const PORT = Number(process.env.PORT) || 4000;
-app.listen(PORT,"0.0.0.0", () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`✅ Backend running at http://0.0.0.0:${PORT}`);
 });
