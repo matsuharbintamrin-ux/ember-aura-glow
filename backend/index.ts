@@ -9,7 +9,7 @@ const app = express();
 
 // index.ts (backend)
 app.use(cors({
-  origin: ["http://farihul-server.space", "http://localhost:8080"], // tambahkan domain dev
+  origin: ["https://farihul-server.space", "http://localhost:8080"], // tambahkan domain dev
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type","Authorization"]
 }));
