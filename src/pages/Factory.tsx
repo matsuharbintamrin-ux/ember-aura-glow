@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import heroFactoryImage from "@/assets/hero-factory.jpg";
 import factoryInteriorImage from "@/assets/factory-interior.jpg";
 import processRawMaterialImage from "@/assets/process-raw-material.jpg";
-import processCarbonizationImage from "@/assets/process-carbonization.jpg";
+import processCarbonizationImage from "@/assets/pembakaran.jpg";
 import processMoldingImage from "@/assets/process-molding.jpg";
 import processQualityControlImage from "@/assets/process-quality-control.jpg";
 import processPackagingImage from "@/assets/process-packaging.jpg";
@@ -79,28 +79,29 @@ const Factory = () => {
     }
   ];
 
-  const facilities = [
+    const facilities = [
     {
-      title: "Tungku Karbonisasi Modern",
-      description: "10+ unit tungku dengan sistem kontrol suhu otomatis",
+      title: "Tungku Pembakaran Arang",
+      description: "Lebih dari 10 tungku terawat yang digunakan untuk proses pembakaran tempurung kelapa secara teratur.",
       icon: <Zap className="h-6 w-6 text-primary" />
     },
     {
-      title: "Mesin Press Hidrolik",
-      description: "Kapasitas produksi 50 ton briket per hari",
+      title: "Alat Pencetak Briket",
+      description: "Mesin tekan berkapasitas besar untuk menghasilkan briket padat dan seragam setiap hari.",
       icon: <FactoryIcon className="h-6 w-6 text-secondary" />
     },
     {
-      title: "Laboratorium Testing",
-      description: "Peralatan uji kualitas berstandar internasional",
+      title: "Tempat Pemeriksaan Kualitas",
+      description: "Setiap hasil produksi dicek secara teliti agar kualitas tetap terjaga sebelum dikemas.",
       icon: <Shield className="h-6 w-6 text-accent" />
     },
     {
-      title: "Gudang Modern",
-      description: "Area penyimpanan 5000m² dengan kontrol kelembaban",
+      title: "Gudang Penyimpanan",
+      description: "Area penyimpanan luas dan kering untuk menjaga arang tetap dalam kondisi baik sebelum dikirim.",
       icon: <Building2 className="h-6 w-6 text-primary" />
     }
   ];
+
 
   const certifications = [
     "ISO 9001:2015 - Quality Management",
@@ -126,11 +127,11 @@ const Factory = () => {
               </Badge>
               
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Fasilitas Produksi <span className="text-primary">Modern</span> dengan Standar <span className="text-secondary">Internasional</span>
+                Fasilitas Pengolahan <span className="text-primary">Arang</span> yang Terjaga <span className="text-secondary">Mutunya</span>
               </h1>
               
               <p className="text-lg text-muted-foreground mb-8">
-                Pabrik kami dilengkapi dengan teknologi terkini dan dikelola oleh tim profesional berpengalaman. Kami berkomitmen menghasilkan produk arang dan briket berkualitas premium dengan standar keamanan dan lingkungan yang ketat.
+                Pabrik kami dijalankan dengan cara yang tertata dan dikelola oleh tenaga yang paham proses pembuatan arang. Kami menjaga mutu setiap produk agar tetap berkualitas dan ramah lingkungan
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -212,8 +213,7 @@ const Factory = () => {
                     <div>
                       <h3 className="text-xl font-bold mb-2">Lokasi Strategis</h3>
                       <p className="text-muted-foreground">
-                        Kawasan Industri Jl. Raya Industri No. 123, Kota Besar, Indonesia. Dekat dengan pelabuhan dan jalur distribusi utama.
-                      </p>
+                        Cangaan, Kec. Ujungpangkah, Kabupaten Gresik, Jawa Timur 61154, Indonesia. Berlokasi strategis dan mudah dijangkau dari berbagai arah.     </p>
                     </div>
                   </div>
 
@@ -224,7 +224,7 @@ const Factory = () => {
                     </div>
                     <div className="flex items-center gap-3">
                       <Mail className="h-5 w-5 text-primary" />
-                      <span>factory@charcoal-premium.com</span>
+                      <span>info@suryagriise.com</span>
                     </div>
                   </div>
                 </CardContent>
@@ -247,7 +247,7 @@ const Factory = () => {
                   <div>
                     <h3 className="text-2xl font-bold mb-4">Visi Kami</h3>
                     <p className="text-white/90">
-                      Menjadi produsen arang dan briket terkemuka di Asia Tenggara dengan standar kualitas internasional dan komitmen terhadap keberlanjutan lingkungan.
+                      Menjadi penghasil arang dan briket terpercaya di Indonesia dengan menjaga kualitas dan kelestarian lingkungan..
                     </p>
                   </div>
                   <div>
@@ -259,7 +259,7 @@ const Factory = () => {
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                        <span>Menerapkan teknologi ramah lingkungan</span>
+                        <span>Menerapkan proses produksi ramah lingkungan</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="h-5 w-5 mt-0.5 flex-shrink-0" />
@@ -325,7 +325,7 @@ const Factory = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Fasilitas & <span className="text-accent">Teknologi</span>
+                Fasilitas & <span className="text-accent">Produksi</span>
               </h2>
               <div className="w-24 h-1 bg-gradient-accent mx-auto mb-6" />
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">

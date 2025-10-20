@@ -18,15 +18,15 @@ const Contact: React.FC = () => {
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
-      info: "info@pabrikanrang.com",
-      subInfo: "sales@pabrikanrang.com",
+      info: "info@suryagriise.com",
+      subInfo: "sales@suryagriise.com",
       color: "secondary",
     },
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Alamat",
-      info: "Jl. Industri No. 123",
-      subInfo: "Jakarta Timur, DKI Jakarta 13450",
+      info: "Cangaan, Kec. Ujungpangkah",
+      subInfo: "Kabupaten Gresik, Jawa Timur 61154, Indonesia",
       color: "accent",
     },
     {

@@ -36,7 +36,7 @@ const Navbar = () => {
             <div>
               <div className="font-bold text-lg leading-none">Surya Griise</div>
               <div className="text-xs text-muted-foreground">
-                Briket Premium
+                Arang Premium
               </div>
             </div>
           </div>

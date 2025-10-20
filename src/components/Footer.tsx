@@ -56,13 +56,13 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="h-4 w-4 mt-0.5 text-secondary flex-shrink-0" />
-                <div className="text-muted-foreground">info@pabrikanrang.com</div>
+                <div className="text-muted-foreground">info@suryagriise.com</div>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 text-accent flex-shrink-0" />
                 <div className="text-muted-foreground">
-                  Jl. Industri No. 123<br />
-                  Jakarta Timur, DKI Jakarta
+                  Cangaan, Kec. Ujungpangkah<br />
+                        subInfo: "Kabupaten Gresik, Jawa Timur 61154, Indonesia",
                 </div>
               </li>
             </ul>

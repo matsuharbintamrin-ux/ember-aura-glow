@@ -4,28 +4,29 @@ const About = () => {
   const features = [
     {
       icon: <Factory className="h-8 w-8" />,
-      title: "Pabrik Modern",
-      description: "Fasilitas produksi dengan teknologi terkini dan standar keamanan tinggi",
+      title: "Produksi Efisien",
+      description: "Fasilitas produksi yang tertata rapi dengan sistem kerja yang efektif.",
       color: "primary"
     },
     {
       icon: <Leaf className="h-8 w-8" />,
-      title: "Ramah Lingkungan",
-      description: "Proses produksi yang berkelanjutan dan tidak merusak lingkungan",
+      title: "Peduli Lingkungan",
+      description: "Proses pembuatan arang dilakukan secara ramah lingkungan dan berkelanjutan.",
       color: "secondary"
     },
     {
       icon: <Award className="h-8 w-8" />,
-      title: "Kualitas Terjamin",
-      description: "Produk tersertifikasi dengan standar kualitas internasional",
+      title: "Mutu Terjamin",
+      description: "Setiap produk melewati pengawasan ketat untuk menjaga kualitas terbaik.",
       color: "accent"
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: "Tim Profesional",
-      description: "Didukung oleh tenaga ahli berpengalaman di bidang industri arang",
+      title: "Tim Handal",
+      description: "Setiap proses dijalankan oleh orang-orang berpengalaman yang mengutamakan kualitas.",
       color: "primary"
     },
+
   ];
 
   return (
@@ -37,7 +38,7 @@ const About = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-primary mx-auto mb-6" />
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Kami adalah produsen arang dan briket terkemuka yang berkomitmen menghadirkan 
+            Kami adalah produsen arang terkemuka yang berkomitmen menghadirkan 
             produk berkualitas tinggi dengan proses produksi yang ramah lingkungan dan berkelanjutan.
           </p>
         </div>
