@@ -105,8 +105,8 @@ const Contact: React.FC = () => {
               title: "Telepon",
               text: (
                 <>
-                  <p>+62 812-3456-7890</p>
-                  <p>+62 21-555-4321 (Kantor)</p>
+                  <p>+6281239911995</p>
+                  <p>+6281239911995 (Kantor)</p>
                 </>
               ),
             },
@@ -115,8 +115,8 @@ const Contact: React.FC = () => {
               title: "Email",
               text: (
                 <>
-                  <p>factory@charcoal-premium.com</p>
-                  <p>sales@charcoal-premium.com</p>
+                  <p>info@suryagrisse.com</p>
+                  <p>sales@suryagrisse.com</p>
                 </>
               ),
             },

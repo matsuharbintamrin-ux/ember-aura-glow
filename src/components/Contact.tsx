@@ -11,15 +11,15 @@ const Contact: React.FC = () => {
     {
       icon: <Phone className="h-6 w-6" />,
       title: "Telepon",
-      info: "+62 812-3456-7890",
+      info: "+62 812-3991-1995",
       subInfo: "+62 821-9876-5432",
       color: "primary",
     },
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
-      info: "info@suryagriise.com",
-      subInfo: "sales@suryagriise.com",
+      info: "info@suryagrisse.com",
+      subInfo: "sales@suryagrisse.com",
       color: "secondary",
     },
     {
@@ -100,7 +100,7 @@ const Contact: React.FC = () => {
                   className="bg-primary hover:bg-primary-dark shadow-primary"
                   onClick={() =>
                     window.open(
-                      "https://wa.me/6281234567890?text=Halo%20saya%20ingin%20memesan%20arang",
+                      "https://wa.me/6281239911995?text=Halo%20saya%20ingin%20memesan%20arang",
                       "_blank"
                     )
                   }
