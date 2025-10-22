@@ -10,17 +10,26 @@ import {
   MapPin,
   Phone,
   Mail,
-  Clock,
   Send,
   MessageCircle,
   ArrowRight,
 } from "lucide-react";
-import contactHero from "@/assets/hero-factory.jpg"; // Pastikan file ada di folder assets
+import { motion } from "framer-motion";
+import contactHero from "@/assets/hero-factory.jpg";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.2 } },
+};
 
 const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: Ganti logika ini dengan API/email service (misal EmailJS)
     alert("Pesan Anda telah dikirim! Kami akan segera menghubungi Anda.");
   };
 
@@ -29,9 +38,14 @@ const Contact: React.FC = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 bg-white">
+      <motion.section
+        className="relative pt-24 pb-16 bg-white"
+        initial="hidden"
+        animate="visible"
+        variants={staggerContainer}
+      >
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
+          <motion.div variants={fadeUp}>
             <Badge variant="secondary" className="mb-4">
               <MessageCircle className="h-4 w-4 mr-2" />
               Hubungi Kami
@@ -51,9 +65,15 @@ const Contact: React.FC = () => {
               <Phone className="h-5 w-5 mr-2" />
               Hubungi Sekarang
             </Button>
-          </div>
+          </motion.div>
 
-          <div className="relative">
+          <motion.div
+            className="relative"
+            variants={fadeUp}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+          >
             <div className="rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src={contactHero}
@@ -61,12 +81,18 @@ const Contact: React.FC = () => {
                 className="w-full h-[450px] object-cover"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact Info */}
-      <section className="py-16 bg-muted/30">
+      <motion.section
+        className="py-16 bg-muted/30"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+      >
         <div className="container mx-auto px-4 grid md:grid-cols-3 gap-6">
           {[
             {
@@ -95,23 +121,31 @@ const Contact: React.FC = () => {
               ),
             },
           ].map((info, idx) => (
-            <Card key={idx}>
-              <CardContent className="p-6 text-center">
-                <div className="bg-muted w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  {info.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-2">{info.title}</h3>
-                <div className="text-muted-foreground">{info.text}</div>
-              </CardContent>
-            </Card>
+            <motion.div key={idx} variants={fadeUp}>
+              <Card className="hover:shadow-lg transition-all">
+                <CardContent className="p-6 text-center">
+                  <div className="bg-muted w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    {info.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">{info.title}</h3>
+                  <div className="text-muted-foreground">{info.text}</div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact Form */}
-      <section className="py-16">
+      <motion.section
+        className="py-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+      >
         <div className="container mx-auto px-4 max-w-5xl">
-          <div className="text-center mb-12">
+          <motion.div className="text-center mb-12" variants={fadeUp}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Kirim <span className="text-primary">Pesan</span> Kepada Kami
             </h2>
@@ -120,56 +154,64 @@ const Contact: React.FC = () => {
               Silakan isi formulir berikut, tim kami akan segera menghubungi
               Anda kembali.
             </p>
-          </div>
+          </motion.div>
 
-          <Card className="shadow-lg">
-            <CardContent className="p-8">
-              <form
-                className="grid md:grid-cols-2 gap-6"
-                onSubmit={handleSubmit}
-              >
-                <div className="space-y-2">
-                  <label className="font-semibold" htmlFor="name">
-                    Nama Lengkap
-                  </label>
-                  <Input id="name" placeholder="Masukkan nama Anda" required />
-                </div>
-                <div className="space-y-2">
-                  <label className="font-semibold" htmlFor="email">
-                    Email
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="contoh@email.com"
-                    required
-                  />
-                </div>
-                <div className="md:col-span-2 space-y-2">
-                  <label className="font-semibold" htmlFor="message">
-                    Pesan
-                  </label>
-                  <Textarea
-                    id="message"
-                    rows={5}
-                    placeholder="Tuliskan pesan atau pertanyaan Anda..."
-                    required
-                  />
-                </div>
-                <div className="md:col-span-2 text-right">
-                  <Button type="submit" size="lg" className="shadow-primary">
-                    <Send className="h-5 w-5 mr-2" />
-                    Kirim Pesan
-                  </Button>
-                </div>
-              </form>
-            </CardContent>
-          </Card>
+          <motion.div variants={fadeUp}>
+            <Card className="shadow-lg">
+              <CardContent className="p-8">
+                <form
+                  className="grid md:grid-cols-2 gap-6"
+                  onSubmit={handleSubmit}
+                >
+                  <div className="space-y-2">
+                    <label className="font-semibold" htmlFor="name">
+                      Nama Lengkap
+                    </label>
+                    <Input id="name" placeholder="Masukkan nama Anda" required />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="font-semibold" htmlFor="email">
+                      Email
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="contoh@email.com"
+                      required
+                    />
+                  </div>
+                  <div className="md:col-span-2 space-y-2">
+                    <label className="font-semibold" htmlFor="message">
+                      Pesan
+                    </label>
+                    <Textarea
+                      id="message"
+                      rows={5}
+                      placeholder="Tuliskan pesan atau pertanyaan Anda..."
+                      required
+                    />
+                  </div>
+                  <div className="md:col-span-2 text-right">
+                    <Button type="submit" size="lg" className="shadow-primary">
+                      <Send className="h-5 w-5 mr-2" />
+                      Kirim Pesan
+                    </Button>
+                  </div>
+                </form>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Map Section */}
-      <section className="py-16 bg-muted/30">
+      <motion.section
+        className="py-16 bg-muted/30"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+      >
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-2">Lokasi Pabrik Kami</h2>
@@ -177,7 +219,12 @@ const Contact: React.FC = () => {
               Kunjungi pabrik kami dan lihat langsung proses produksi
             </p>
           </div>
-          <div className="rounded-2xl overflow-hidden shadow-lg h-[450px]">
+          <motion.div
+            className="rounded-2xl overflow-hidden shadow-lg h-[450px]"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+          >
             <iframe
               title="Factory Location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.9465239335797!2d110.40038587591605!3d-7.796566477641993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5837e3cbbcf5%3A0x1c5a3a7c84b97d1b!2sYogyakarta!5e0!3m2!1sen!2sid!4v1696957653123!5m2!1sen!2sid"
@@ -187,12 +234,17 @@ const Contact: React.FC = () => {
               className="border-0"
               allowFullScreen
             ></iframe>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-primary text-center">
+      <motion.section
+        className="py-20 bg-gradient-primary text-center"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Siap Bekerja Sama dengan Kami?
@@ -212,7 +264,7 @@ const Contact: React.FC = () => {
             <ArrowRight className="h-5 w-5 ml-2" />
           </Button>
         </div>
-      </section>
+      </motion.section>
 
       <Footer />
     </div>
