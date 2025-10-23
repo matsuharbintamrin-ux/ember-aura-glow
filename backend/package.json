@@ -4,9 +4,9 @@
   "description": "Backend Node.js + Express + SQLite untuk Ember Aura Glow",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.ts",
-    "start": "ts-node index.ts",
-    "build": "tsc",
+    "dev": "node init && nodemon index.ts",
+    "start": "node init && ts-node index.ts",
+    "build": "node init && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

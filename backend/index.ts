@@ -5,7 +5,7 @@ import productsRouter from "./routes/products";
 import chatRouter from "./routes/chat";
 
 const app = express();
-
+//
 // ✅ CORS: izinkan domain frontend
 app.use(cors({
   origin: ["https://farihul-server.space", "http://localhost:8080"], 
